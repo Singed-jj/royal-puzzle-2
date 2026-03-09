@@ -1,0 +1,12 @@
+[
+  { "id": 1, "moves": 25, "goals": [{ "itemId": 0, "count": 15 }], "boards": [{ "rows": 10, "cols": 8, "cells": [] }], "spawnableGems": [0, 1, 2, 3, 4], "backgroundId": 0 },
+  { "id": 2, "moves": 22, "goals": [{ "itemId": 1, "count": 20 }], "boards": [{ "rows": 10, "cols": 8, "cells": [] }], "spawnableGems": [0, 1, 2, 3, 4], "backgroundId": 0 },
+  { "id": 3, "moves": 20, "goals": [{ "itemId": 0, "count": 10 }, { "itemId": 2, "count": 10 }], "boards": [{ "rows": 10, "cols": 8, "cells": [] }], "spawnableGems": [0, 1, 2, 3, 4], "backgroundId": 0 },
+  { "id": 4, "moves": 25, "goals": [{ "itemId": 3, "count": 25 }], "boards": [{ "rows": 10, "cols": 8, "cells": [] }], "spawnableGems": [0, 1, 2, 3, 4], "backgroundId": 1 },
+  { "id": 5, "moves": 20, "goals": [{ "itemId": 0, "count": 15 }, { "itemId": 1, "count": 15 }], "boards": [{ "rows": 10, "cols": 8, "cells": [] }], "spawnableGems": [0, 1, 2, 3, 4], "backgroundId": 1 },
+  { "id": 6, "moves": 18, "goals": [{ "itemId": 100, "count": 12 }], "boards": [{ "rows": 10, "cols": 8, "cells": [] }], "spawnableGems": [0, 1, 2, 3, 4], "backgroundId": 1 },
+  { "id": 7, "moves": 22, "goals": [{ "itemId": 2, "count": 20 }, { "itemId": 100, "count": 5 }], "boards": [{ "rows": 10, "cols": 8, "cells": [] }], "spawnableGems": [0, 1, 2, 3, 4], "backgroundId": 1 },
+  { "id": 8, "moves": 20, "goals": [{ "itemId": 4, "count": 30 }], "boards": [{ "rows": 10, "cols": 8, "cells": [] }], "spawnableGems": [0, 1, 2, 3, 4], "backgroundId": 2 },
+  { "id": 9, "moves": 18, "goals": [{ "itemId": 1, "count": 15 }, { "itemId": 3, "count": 15 }], "boards": [{ "rows": 10, "cols": 8, "cells": [] }], "spawnableGems": [0, 1, 2, 3, 4], "backgroundId": 2 },
+  { "id": 10, "moves": 15, "goals": [{ "itemId": 0, "count": 10 }, { "itemId": 1, "count": 10 }, { "itemId": 2, "count": 10 }], "boards": [{ "rows": 10, "cols": 8, "cells": [] }], "spawnableGems": [0, 1, 2, 3, 4], "backgroundId": 2 }
+]

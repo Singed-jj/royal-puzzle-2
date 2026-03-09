@@ -1,0 +1,14 @@
+{
+  "name": "Royal Puzzle 2",
+  "short_name": "RoyalPuzzle2",
+  "description": "Gem Match-3 Puzzle Game",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1a0a2e",
+  "theme_color": "#6C3483",
+  "icons": [
+    { "src": "/assets/ui/app_icon_192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/ui/app_icon_512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
