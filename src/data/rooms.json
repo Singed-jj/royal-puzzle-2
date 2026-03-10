@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1, "name": "지하 서버실", "theme": "server_room",
+    "bgColor": "0x0a0a1e", "accentColor": "0x00FF88",
+    "storyIntro": "곰사원은 악덕사장의 지하 서버실에 갇혔다...\nLED 불빛과 마법진 사이에서 탈출구를 찾자!",
+    "storyComplete": "서버 전원을 차단했다! 잠금이 해제된다!\n더 깊은 지하로 내려가자...",
+    "items": [
+      { "id": "led_strip", "name": "LED 케이블", "unlockStage": 1, "x": 0.15, "y": 0.3, "emoji": "💡", "description": "LED 케이블로 어둠을 밝힌다!" },
+      { "id": "usb_key", "name": "USB 키", "unlockStage": 2, "x": 0.7, "y": 0.4, "emoji": "🔌", "description": "서버 접근용 USB 키 발견!" },
+      { "id": "magic_rune", "name": "마법 룬석", "unlockStage": 3, "x": 0.4, "y": 0.6, "emoji": "🔮", "description": "서버랙 뒤에서 룬석을 찾았다!" },
+      { "id": "wire_cutter", "name": "니퍼", "unlockStage": 4, "x": 0.8, "y": 0.3, "emoji": "✂️", "description": "케이블을 자를 니퍼!" },
+      { "id": "torch", "name": "횃불", "unlockStage": 5, "x": 0.25, "y": 0.5, "emoji": "🔥", "description": "마법진 옆 횃불을 얻었다!" },
+      { "id": "server_log", "name": "서버 로그", "unlockStage": 6, "x": 0.6, "y": 0.55, "emoji": "📋", "description": "로그에서 비밀번호 힌트 발견!" },
+      { "id": "cooling_fan", "name": "냉각 팬", "unlockStage": 7, "x": 0.35, "y": 0.35, "emoji": "🌀", "description": "팬을 분해해 도구로 사용!" },
+      { "id": "fire_ext", "name": "소화기", "unlockStage": 8, "x": 0.5, "y": 0.7, "emoji": "🧯", "description": "소화기로 마법진을 지운다!" },
+      { "id": "admin_pass", "name": "관리자 비번", "unlockStage": 9, "x": 0.75, "y": 0.6, "emoji": "🔐", "description": "관리자 비밀번호를 해독했다!" },
+      { "id": "power_switch", "name": "전원 스위치", "unlockStage": 10, "x": 0.5, "y": 0.45, "emoji": "⚡", "description": "전원 차단! 잠금 해제!" }
+    ]
+  },
+  {
+    "id": 2, "name": "지하 감옥", "theme": "dungeon",
+    "bgColor": "0x1a1a2e", "accentColor": "0x8B4513",
+    "storyIntro": "쇠창살 너머로 출퇴근 기록기가 보인다...\n열쇠 조각을 모아 탈출하자!",
+    "storyComplete": "감옥의 자물쇠가 풀렸다!\n와인 저장고로 이동하자...",
+    "items": [
+      { "id": "timecard", "name": "출근카드", "unlockStage": 1, "x": 0.15, "y": 0.3, "emoji": "🪪", "description": "출근카드에 힌트가 적혀있다!" },
+      { "id": "key_piece1", "name": "열쇠 조각 1", "unlockStage": 2, "x": 0.7, "y": 0.5, "emoji": "🔑", "description": "첫 번째 열쇠 조각 발견!" },
+      { "id": "rope", "name": "밧줄", "unlockStage": 3, "x": 0.3, "y": 0.6, "emoji": "🪢", "description": "벽 틈에서 밧줄을 찾았다!" },
+      { "id": "map", "name": "지도 조각", "unlockStage": 4, "x": 0.8, "y": 0.3, "emoji": "🗺️", "description": "벽돌 뒤에서 지도를 발견!" },
+      { "id": "hammer", "name": "망치", "unlockStage": 5, "x": 0.5, "y": 0.7, "emoji": "🔨", "description": "돌 밑에서 망치를 발견했다!" },
+      { "id": "candle", "name": "양초", "unlockStage": 6, "x": 0.2, "y": 0.45, "emoji": "🕯️", "description": "양초로 비밀 통로를 비춘다!" },
+      { "id": "key_piece2", "name": "열쇠 조각 2", "unlockStage": 7, "x": 0.6, "y": 0.35, "emoji": "🔑", "description": "두 번째 열쇠 조각!" },
+      { "id": "chisel", "name": "정", "unlockStage": 8, "x": 0.4, "y": 0.55, "emoji": "⛏️", "description": "정으로 쇠창살을 깰 수 있다!" },
+      { "id": "disguise", "name": "변장 도구", "unlockStage": 9, "x": 0.75, "y": 0.65, "emoji": "🎭", "description": "경비병 옷을 발견했다!" },
+      { "id": "door_key", "name": "감옥 열쇠", "unlockStage": 10, "x": 0.5, "y": 0.4, "emoji": "🗝️", "description": "열쇠 완성! 감옥 문이 열린다!" }
+    ]
+  },
+  {
+    "id": 3, "name": "지하 와인 저장고", "theme": "wine_cellar",
+    "bgColor": "0x2D1B0E", "accentColor": "0x722F37",
+    "storyIntro": "와인 배럴 사이에 사장의 비자금 금고가 숨겨져 있다...\n비밀 통로를 찾아야 한다!",
+    "storyComplete": "금고 뒤의 비밀 통로를 발견했다!\n하수도로 빠져나가자...",
+    "items": [
+      { "id": "wine_opener", "name": "와인 오프너", "unlockStage": 1, "x": 0.2, "y": 0.3, "emoji": "🍾", "description": "와인 오프너로 나사를 풀 수 있다!" },
+      { "id": "barrel_tap", "name": "배럴 꼭지", "unlockStage": 2, "x": 0.65, "y": 0.4, "emoji": "🪣", "description": "배럴에서 꼭지를 뽑았다!" },
+      { "id": "gold_coin", "name": "금화", "unlockStage": 3, "x": 0.4, "y": 0.55, "emoji": "🪙", "description": "비자금 금화 하나 발견!" },
+      { "id": "old_map", "name": "낡은 설계도", "unlockStage": 4, "x": 0.8, "y": 0.35, "emoji": "📜", "description": "저장고 설계도에 비밀 통로가!" },
+      { "id": "candle_stick", "name": "촛대", "unlockStage": 5, "x": 0.3, "y": 0.65, "emoji": "🕯️", "description": "촛대를 레버처럼 당기면..." },
+      { "id": "wine_glass", "name": "와인잔", "unlockStage": 6, "x": 0.55, "y": 0.3, "emoji": "🥂", "description": "와인잔 밑에 암호가 새겨져있다!" },
+      { "id": "ledger", "name": "이중 장부", "unlockStage": 7, "x": 0.15, "y": 0.5, "emoji": "📒", "description": "사장의 이중 장부 발견!" },
+      { "id": "safe_combo", "name": "금고 번호", "unlockStage": 8, "x": 0.7, "y": 0.6, "emoji": "🔢", "description": "배럴 뒤에서 금고 번호 발견!" },
+      { "id": "dynamite", "name": "다이너마이트", "unlockStage": 9, "x": 0.45, "y": 0.45, "emoji": "🧨", "description": "오래된 다이너마이트... 조심!" },
+      { "id": "secret_door", "name": "비밀문 손잡이", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🚪", "description": "비밀 통로 개방!" }
+    ]
+  },
+  {
+    "id": 4, "name": "하수도", "theme": "sewer",
+    "bgColor": "0x1a2a1a", "accentColor": "0x4A7C59",
+    "storyIntro": "파이프와 마법 수로가 얽힌 하수도...\n사다리를 조립해서 1층으로 올라가자!",
+    "storyComplete": "사다리 조립 완료! 1층이 보인다!\n우편물 창고로 올라가자...",
+    "items": [
+      { "id": "wrench", "name": "렌치", "unlockStage": 1, "x": 0.2, "y": 0.35, "emoji": "🔧", "description": "녹슨 렌치를 발견했다!" },
+      { "id": "pipe_piece1", "name": "파이프 조각 1", "unlockStage": 2, "x": 0.7, "y": 0.3, "emoji": "🔩", "description": "사다리 재료가 될 파이프!" },
+      { "id": "rubber_boot", "name": "장화", "unlockStage": 3, "x": 0.35, "y": 0.6, "emoji": "🥾", "description": "수로를 건널 장화!" },
+      { "id": "magic_moss", "name": "마법 이끼", "unlockStage": 4, "x": 0.8, "y": 0.5, "emoji": "🌿", "description": "빛나는 이끼가 길을 알려준다!" },
+      { "id": "pipe_piece2", "name": "파이프 조각 2", "unlockStage": 5, "x": 0.5, "y": 0.7, "emoji": "🔩", "description": "두 번째 파이프 조각!" },
+      { "id": "valve", "name": "밸브", "unlockStage": 6, "x": 0.15, "y": 0.45, "emoji": "☸️", "description": "밸브로 수류를 조절!" },
+      { "id": "rope_ladder", "name": "밧줄 사다리", "unlockStage": 7, "x": 0.6, "y": 0.4, "emoji": "🪜", "description": "끊어진 밧줄 사다리 조각!" },
+      { "id": "lantern", "name": "방수 랜턴", "unlockStage": 8, "x": 0.4, "y": 0.35, "emoji": "🏮", "description": "방수 랜턴으로 앞이 보인다!" },
+      { "id": "pipe_piece3", "name": "파이프 조각 3", "unlockStage": 9, "x": 0.75, "y": 0.65, "emoji": "🔩", "description": "마지막 파이프 조각!" },
+      { "id": "ladder", "name": "완성된 사다리", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🪜", "description": "사다리 완성! 1층으로!" }
+    ]
+  },
+  {
+    "id": 5, "name": "우편물 창고", "theme": "mailroom",
+    "bgColor": "0x2a2520", "accentColor": "0xD4A574",
+    "storyIntro": "택배 박스가 산더미처럼 쌓여있다...\n마법 봉인 테이프를 풀고 카트로 문을 돌파하자!",
+    "storyComplete": "카트로 문을 돌파했다!\n사내 식당으로 이동하자...",
+    "items": [
+      { "id": "box_cutter", "name": "박스 커터", "unlockStage": 1, "x": 0.2, "y": 0.3, "emoji": "📦", "description": "날카로운 박스 커터 발견!" },
+      { "id": "tape", "name": "봉인 테이프", "unlockStage": 2, "x": 0.7, "y": 0.45, "emoji": "🎗️", "description": "마법 봉인 테이프를 벗겼다!" },
+      { "id": "dolly_wheel", "name": "카트 바퀴", "unlockStage": 3, "x": 0.35, "y": 0.6, "emoji": "🛞", "description": "카트 바퀴를 찾았다!" },
+      { "id": "stamp", "name": "우편 도장", "unlockStage": 4, "x": 0.8, "y": 0.35, "emoji": "📮", "description": "도장에 비밀 코드가!" },
+      { "id": "bubble_wrap", "name": "에어캡", "unlockStage": 5, "x": 0.5, "y": 0.7, "emoji": "💨", "description": "완충재로 소음을 줄인다!" },
+      { "id": "address_book", "name": "주소록", "unlockStage": 6, "x": 0.15, "y": 0.5, "emoji": "📓", "description": "배달 경로에 탈출 힌트가!" },
+      { "id": "dolly_handle", "name": "카트 손잡이", "unlockStage": 7, "x": 0.6, "y": 0.35, "emoji": "🔧", "description": "카트 손잡이 장착!" },
+      { "id": "magic_label", "name": "마법 라벨", "unlockStage": 8, "x": 0.4, "y": 0.45, "emoji": "🏷️", "description": "라벨이 문의 약점을 표시!" },
+      { "id": "helmet", "name": "안전모", "unlockStage": 9, "x": 0.75, "y": 0.6, "emoji": "⛑️", "description": "돌파 시 머리를 보호!" },
+      { "id": "loaded_cart", "name": "돌격 카트", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🛒", "description": "카트 완성! 문을 돌파!" }
+    ]
+  },
+  {
+    "id": 6, "name": "사내 식당", "theme": "cafeteria",
+    "bgColor": "0x2D1B0E", "accentColor": "0xE8A020",
+    "storyIntro": "급식대와 가마솥이 있는 사내 식당...\n마법 양념으로 경비를 매수할 요리를 만들자!",
+    "storyComplete": "특제 요리로 경비를 매수했다!\n직원 휴게실로 이동하자...",
+    "items": [
+      { "id": "pot", "name": "냄비", "unlockStage": 1, "x": 0.3, "y": 0.4, "emoji": "🍲", "description": "큰 냄비를 발견!" },
+      { "id": "knife", "name": "칼", "unlockStage": 2, "x": 0.7, "y": 0.3, "emoji": "🔪", "description": "재료를 손질할 칼!" },
+      { "id": "magic_spice", "name": "마법 양념", "unlockStage": 3, "x": 0.2, "y": 0.6, "emoji": "✨", "description": "마법 양념으로 최면 요리를!" },
+      { "id": "cauldron", "name": "가마솥", "unlockStage": 4, "x": 0.5, "y": 0.25, "emoji": "🫕", "description": "가마솥에서 비밀 재료 발견!" },
+      { "id": "plate", "name": "접시", "unlockStage": 5, "x": 0.6, "y": 0.55, "emoji": "🍽️", "description": "접시 아래 비밀 메모 발견!" },
+      { "id": "ladle", "name": "국자", "unlockStage": 6, "x": 0.15, "y": 0.45, "emoji": "🥄", "description": "국자 손잡이에 열쇠가!" },
+      { "id": "salt", "name": "소금", "unlockStage": 7, "x": 0.8, "y": 0.5, "emoji": "🧂", "description": "소금으로 마법진을 그린다!" },
+      { "id": "wine", "name": "포도주", "unlockStage": 8, "x": 0.4, "y": 0.35, "emoji": "🍷", "description": "경비병을 재울 포도주!" },
+      { "id": "recipe", "name": "비밀 레시피", "unlockStage": 9, "x": 0.65, "y": 0.7, "emoji": "📜", "description": "레시피 뒤에 탈출 암호가!" },
+      { "id": "bribe_dish", "name": "매수용 특식", "unlockStage": 10, "x": 0.5, "y": 0.45, "emoji": "🍛", "description": "특식 완성! 경비 매수 성공!" }
+    ]
+  },
+  {
+    "id": 7, "name": "직원 휴게실", "theme": "break_room",
+    "bgColor": "0x1e2d3d", "accentColor": "0x6B9BD2",
+    "storyIntro": "자판기와 낡은 소파, 그리고 마법 커피머신...\n환기구 입구를 찾아서 2층으로 가자!",
+    "storyComplete": "환기구 입구를 발견했다!\n덕트 안으로 들어가자...",
+    "items": [
+      { "id": "coins", "name": "동전", "unlockStage": 1, "x": 0.2, "y": 0.35, "emoji": "🪙", "description": "소파 쿠션 사이에서 동전 발견!" },
+      { "id": "coffee", "name": "마법 커피", "unlockStage": 2, "x": 0.65, "y": 0.3, "emoji": "☕", "description": "마법 커피로 체력 회복!" },
+      { "id": "magazine", "name": "잡지", "unlockStage": 3, "x": 0.4, "y": 0.6, "emoji": "📰", "description": "잡지 사이에 환기구 지도가!" },
+      { "id": "screwdriver", "name": "드라이버", "unlockStage": 4, "x": 0.8, "y": 0.5, "emoji": "🪛", "description": "환기구 커버를 열 드라이버!" },
+      { "id": "cushion", "name": "쿠션", "unlockStage": 5, "x": 0.3, "y": 0.45, "emoji": "🛋️", "description": "쿠션으로 착지 충격 완화!" },
+      { "id": "vending_snack", "name": "자판기 간식", "unlockStage": 6, "x": 0.55, "y": 0.65, "emoji": "🍫", "description": "비상 식량 확보!" },
+      { "id": "remote", "name": "리모컨", "unlockStage": 7, "x": 0.15, "y": 0.55, "emoji": "📺", "description": "리모컨이 비밀 주파수를 발신!" },
+      { "id": "tape_roll", "name": "테이프", "unlockStage": 8, "x": 0.7, "y": 0.4, "emoji": "🎗️", "description": "도구를 고정할 테이프!" },
+      { "id": "flashlight", "name": "손전등", "unlockStage": 9, "x": 0.45, "y": 0.35, "emoji": "🔦", "description": "덕트 안을 비출 손전등!" },
+      { "id": "vent_cover", "name": "환기구 개방", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🌬️", "description": "환기구 열림! 덕트 진입!" }
+    ]
+  },
+  {
+    "id": 8, "name": "환기 덕트", "theme": "vent_duct",
+    "bgColor": "0x2a2a2a", "accentColor": "0x888888",
+    "storyIntro": "좁은 덕트 안에서 마법 바람이 불어온다...\n2층으로 가는 길을 찾자!",
+    "storyComplete": "덕트를 통과했다! 2층이다!\n문서 보관실로 나가자...",
+    "items": [
+      { "id": "gloves", "name": "장갑", "unlockStage": 1, "x": 0.2, "y": 0.3, "emoji": "🧤", "description": "날카로운 모서리를 피할 장갑!" },
+      { "id": "wind_charm", "name": "바람 부적", "unlockStage": 2, "x": 0.7, "y": 0.45, "emoji": "🎐", "description": "마법 바람의 방향을 알려준다!" },
+      { "id": "duct_tape", "name": "덕트 테이프", "unlockStage": 3, "x": 0.35, "y": 0.55, "emoji": "🔧", "description": "떨어진 부분을 수리!" },
+      { "id": "compass", "name": "나침반", "unlockStage": 4, "x": 0.8, "y": 0.35, "emoji": "🧭", "description": "덕트 미로에서 방향을!" },
+      { "id": "knee_pad", "name": "무릎 보호대", "unlockStage": 5, "x": 0.5, "y": 0.7, "emoji": "🦵", "description": "기어가기가 편해졌다!" },
+      { "id": "mini_fan", "name": "미니 팬", "unlockStage": 6, "x": 0.15, "y": 0.5, "emoji": "🌀", "description": "독가스를 날려보낸다!" },
+      { "id": "wire", "name": "전선", "unlockStage": 7, "x": 0.6, "y": 0.4, "emoji": "🔌", "description": "전선으로 팬을 멈춘다!" },
+      { "id": "mirror", "name": "작은 거울", "unlockStage": 8, "x": 0.4, "y": 0.35, "emoji": "🪞", "description": "코너 너머를 확인!" },
+      { "id": "oil_can", "name": "윤활유", "unlockStage": 9, "x": 0.75, "y": 0.6, "emoji": "🛢️", "description": "삐걱거리는 통풍구에 윤활유!" },
+      { "id": "exit_grate", "name": "출구 격자", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🔲", "description": "격자 열림! 2층 도착!" }
+    ]
+  },
+  {
+    "id": 9, "name": "문서 보관실", "theme": "archive",
+    "bgColor": "0x2e2418", "accentColor": "0xC4A882",
+    "storyIntro": "서류 산과 파쇄기, 마법 잉크가 가득한 보관실...\n탈출 지도를 조합하자!",
+    "storyComplete": "지도 조합 완료! 탈출 경로가 보인다!\n인사팀 사무실로 이동하자...",
+    "items": [
+      { "id": "magnifier", "name": "돋보기", "unlockStage": 1, "x": 0.2, "y": 0.35, "emoji": "🔍", "description": "작은 글씨를 읽을 돋보기!" },
+      { "id": "map_piece1", "name": "지도 조각 1", "unlockStage": 2, "x": 0.7, "y": 0.3, "emoji": "🗺️", "description": "첫 번째 지도 조각!" },
+      { "id": "magic_ink", "name": "마법 잉크", "unlockStage": 3, "x": 0.4, "y": 0.6, "emoji": "🖋️", "description": "투명 잉크가 보이기 시작한다!" },
+      { "id": "folder", "name": "극비 폴더", "unlockStage": 4, "x": 0.8, "y": 0.5, "emoji": "📂", "description": "사장의 극비 문서 발견!" },
+      { "id": "map_piece2", "name": "지도 조각 2", "unlockStage": 5, "x": 0.3, "y": 0.45, "emoji": "🗺️", "description": "두 번째 지도 조각!" },
+      { "id": "shredded_doc", "name": "파쇄 문서 복원", "unlockStage": 6, "x": 0.55, "y": 0.65, "emoji": "📄", "description": "파쇄된 문서를 맞췄다!" },
+      { "id": "stamp_pad", "name": "도장 잉크", "unlockStage": 7, "x": 0.15, "y": 0.55, "emoji": "📌", "description": "위조 서류를 만들 수 있다!" },
+      { "id": "map_piece3", "name": "지도 조각 3", "unlockStage": 8, "x": 0.6, "y": 0.4, "emoji": "🗺️", "description": "세 번째 지도 조각!" },
+      { "id": "decoder", "name": "암호 해독기", "unlockStage": 9, "x": 0.45, "y": 0.35, "emoji": "🔐", "description": "암호화된 지도를 해독!" },
+      { "id": "escape_map", "name": "완성 지도", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "📍", "description": "탈출 지도 완성!" }
+    ]
+  },
+  {
+    "id": 10, "name": "인사팀 사무실", "theme": "hr_office",
+    "bgColor": "0x1a2030", "accentColor": "0x5B8DB8",
+    "storyIntro": "사직서 더미와 CCTV가 가득한 인사팀...\nCCTV를 무력화해야 한다!",
+    "storyComplete": "CCTV 무력화 성공! 감시를 피했다!\n회의실로 이동하자...",
+    "items": [
+      { "id": "resignation", "name": "사직서", "unlockStage": 1, "x": 0.2, "y": 0.3, "emoji": "📝", "description": "다른 직원의 사직서... 우리만이 아니었구나" },
+      { "id": "badge", "name": "사원증", "unlockStage": 2, "x": 0.7, "y": 0.45, "emoji": "🪪", "description": "다른 사람의 사원증으로 위장!" },
+      { "id": "cctv_map", "name": "CCTV 배치도", "unlockStage": 3, "x": 0.35, "y": 0.6, "emoji": "📋", "description": "CCTV 사각지대를 파악!" },
+      { "id": "magic_stamp", "name": "마법 도장", "unlockStage": 4, "x": 0.8, "y": 0.35, "emoji": "🔏", "description": "마법 도장으로 서류 위조!" },
+      { "id": "password_note", "name": "비밀번호 메모", "unlockStage": 5, "x": 0.5, "y": 0.7, "emoji": "🔑", "description": "모니터 아래에 비밀번호가!" },
+      { "id": "wire_cutters", "name": "전선 니퍼", "unlockStage": 6, "x": 0.15, "y": 0.5, "emoji": "✂️", "description": "CCTV 케이블을 자르자!" },
+      { "id": "usb_drive", "name": "USB 드라이브", "unlockStage": 7, "x": 0.6, "y": 0.35, "emoji": "💾", "description": "바이러스가 담긴 USB!" },
+      { "id": "employee_list", "name": "직원 명단", "unlockStage": 8, "x": 0.4, "y": 0.45, "emoji": "📊", "description": "동료들의 연락처 확보!" },
+      { "id": "spray_paint", "name": "스프레이", "unlockStage": 9, "x": 0.75, "y": 0.6, "emoji": "🎨", "description": "CCTV 렌즈에 스프레이!" },
+      { "id": "cctv_off", "name": "CCTV 차단", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "📵", "description": "CCTV 전원 차단 성공!" }
+    ]
+  },
+  {
+    "id": 11, "name": "회의실", "theme": "meeting_room",
+    "bgColor": "0x1e1e28", "accentColor": "0x9B8EC4",
+    "storyIntro": "긴 테이블과 화이트보드, 마법 빔프로젝터...\n비밀 설계도를 찾아야 한다!",
+    "storyComplete": "건물 비밀 설계도를 입수했다!\n경리실로 이동하자...",
+    "items": [
+      { "id": "marker", "name": "보드마카", "unlockStage": 1, "x": 0.2, "y": 0.3, "emoji": "🖊️", "description": "마법 잉크로 쓴 보드마카!" },
+      { "id": "projector_lens", "name": "빔 렌즈", "unlockStage": 2, "x": 0.7, "y": 0.4, "emoji": "🔍", "description": "렌즈로 숨겨진 글씨를 확대!" },
+      { "id": "chair_wheel", "name": "의자 바퀴", "unlockStage": 3, "x": 0.4, "y": 0.6, "emoji": "🪑", "description": "의자 바퀴를 도구로 활용!" },
+      { "id": "whiteboard_eraser", "name": "보드 지우개", "unlockStage": 4, "x": 0.8, "y": 0.35, "emoji": "🧹", "description": "지우면 아래에 비밀 메시지가!" },
+      { "id": "power_strip", "name": "멀티탭", "unlockStage": 5, "x": 0.3, "y": 0.5, "emoji": "🔌", "description": "마법 빔을 작동시킬 전원!" },
+      { "id": "notebook", "name": "메모장", "unlockStage": 6, "x": 0.55, "y": 0.65, "emoji": "📓", "description": "전 회의 내용에 힌트가!" },
+      { "id": "magic_beam", "name": "마법 빔 가동", "unlockStage": 7, "x": 0.15, "y": 0.45, "emoji": "📽️", "description": "벽에 비밀 설계도가 투영!" },
+      { "id": "blueprint_p1", "name": "설계도 전반부", "unlockStage": 8, "x": 0.6, "y": 0.35, "emoji": "📐", "description": "건물 하층부 설계도 확보!" },
+      { "id": "blueprint_p2", "name": "설계도 후반부", "unlockStage": 9, "x": 0.45, "y": 0.45, "emoji": "📐", "description": "건물 상층부 설계도 확보!" },
+      { "id": "full_blueprint", "name": "완전한 설계도", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🏗️", "description": "설계도 완성! 비밀 통로가 보인다!" }
+    ]
+  },
+  {
+    "id": 12, "name": "경리실/금고", "theme": "treasury",
+    "bgColor": "0x1a1520", "accentColor": "0xFFD700",
+    "storyIntro": "이중 장부와 금괴, 마법 자물쇠가 있는 경리실...\n마스터키를 획득해야 한다!",
+    "storyComplete": "마스터키 획득! 3층으로 갈 수 있다!\n감시 통제실로 향하자...",
+    "items": [
+      { "id": "calculator", "name": "계산기", "unlockStage": 1, "x": 0.2, "y": 0.35, "emoji": "🧮", "description": "계산기에 숨겨진 코드!" },
+      { "id": "gold_bar", "name": "금괴", "unlockStage": 2, "x": 0.7, "y": 0.3, "emoji": "🪙", "description": "금괴를 무게추로 활용!" },
+      { "id": "double_ledger", "name": "이중 장부", "unlockStage": 3, "x": 0.4, "y": 0.6, "emoji": "📒", "description": "사장의 비리 증거 확보!" },
+      { "id": "safe_dial", "name": "금고 다이얼", "unlockStage": 4, "x": 0.8, "y": 0.5, "emoji": "🔢", "description": "다이얼 첫 번째 숫자 해독!" },
+      { "id": "magic_lock_oil", "name": "마법 윤활유", "unlockStage": 5, "x": 0.3, "y": 0.45, "emoji": "🧴", "description": "마법 자물쇠가 느슨해진다!" },
+      { "id": "receipt_pile", "name": "영수증 더미", "unlockStage": 6, "x": 0.55, "y": 0.65, "emoji": "🧾", "description": "영수증에서 금고 번호 단서!" },
+      { "id": "safe_dial2", "name": "두번째 번호", "unlockStage": 7, "x": 0.15, "y": 0.55, "emoji": "🔢", "description": "다이얼 두 번째 숫자!" },
+      { "id": "crowbar", "name": "지렛대", "unlockStage": 8, "x": 0.6, "y": 0.4, "emoji": "🪝", "description": "금고 문을 벌릴 지렛대!" },
+      { "id": "safe_dial3", "name": "세번째 번호", "unlockStage": 9, "x": 0.45, "y": 0.35, "emoji": "🔢", "description": "마지막 번호! 금고가 열린다!" },
+      { "id": "master_key", "name": "마스터키", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🔑", "description": "마스터키 획득! 3층으로!" }
+    ]
+  },
+  {
+    "id": 13, "name": "감시 통제실", "theme": "control_room",
+    "bgColor": "0x0f1520", "accentColor": "0x00BFFF",
+    "storyIntro": "CCTV 벽면과 마이크, 마법 수정구...\n전 층 감시를 해제해야 한다!",
+    "storyComplete": "감시 시스템 해제! 자유롭게 이동 가능!\n트로피 룸으로 향하자...",
+    "items": [
+      { "id": "monitor_key", "name": "모니터 키", "unlockStage": 1, "x": 0.2, "y": 0.3, "emoji": "🖥️", "description": "감시 모니터 접근 키!" },
+      { "id": "crystal_ball", "name": "수정구", "unlockStage": 2, "x": 0.7, "y": 0.45, "emoji": "🔮", "description": "마법 수정구로 미래를 본다!" },
+      { "id": "mic_jammer", "name": "마이크 재머", "unlockStage": 3, "x": 0.35, "y": 0.55, "emoji": "🎙️", "description": "도청 마이크를 무력화!" },
+      { "id": "access_card", "name": "접근 카드", "unlockStage": 4, "x": 0.8, "y": 0.35, "emoji": "💳", "description": "관리자 접근 카드 복제!" },
+      { "id": "virus_disk", "name": "바이러스 디스크", "unlockStage": 5, "x": 0.5, "y": 0.7, "emoji": "💿", "description": "감시 시스템 바이러스!" },
+      { "id": "wiring_diagram", "name": "배선도", "unlockStage": 6, "x": 0.15, "y": 0.5, "emoji": "📋", "description": "메인 케이블 위치 파악!" },
+      { "id": "bolt_cutter", "name": "볼트 커터", "unlockStage": 7, "x": 0.6, "y": 0.4, "emoji": "✂️", "description": "메인 케이블을 자른다!" },
+      { "id": "emp_device", "name": "EMP 장치", "unlockStage": 8, "x": 0.4, "y": 0.35, "emoji": "⚡", "description": "전자기 펄스로 시스템 마비!" },
+      { "id": "backup_disable", "name": "백업 차단", "unlockStage": 9, "x": 0.75, "y": 0.6, "emoji": "🚫", "description": "백업 전원도 차단!" },
+      { "id": "all_clear", "name": "전층 해제", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "✅", "description": "모든 감시 시스템 해제!" }
+    ]
+  },
+  {
+    "id": 14, "name": "트로피 룸", "theme": "trophy_room",
+    "bgColor": "0x2a1a10", "accentColor": "0xDAA520",
+    "storyIntro": "사장의 상패, 박제, 마법 갑옷 컬렉션...\n갑옷으로 위장해서 지나가자!",
+    "storyComplete": "갑옷 위장 완료! 아무도 못 알아본다!\n사장 전용 스파로 이동하자...",
+    "items": [
+      { "id": "trophy", "name": "상패", "unlockStage": 1, "x": 0.2, "y": 0.35, "emoji": "🏆", "description": "상패를 방패로 활용!" },
+      { "id": "stuffed_head", "name": "박제 머리", "unlockStage": 2, "x": 0.7, "y": 0.3, "emoji": "🦌", "description": "박제 뒤에 비밀 금고가!" },
+      { "id": "armor_helmet", "name": "갑옷 투구", "unlockStage": 3, "x": 0.4, "y": 0.6, "emoji": "⛑️", "description": "마법 갑옷 투구 획득!" },
+      { "id": "sword", "name": "장식용 검", "unlockStage": 4, "x": 0.8, "y": 0.5, "emoji": "⚔️", "description": "검이 레버처럼 작동한다!" },
+      { "id": "armor_chest", "name": "갑옷 흉갑", "unlockStage": 5, "x": 0.3, "y": 0.45, "emoji": "🛡️", "description": "갑옷 흉갑 장착!" },
+      { "id": "medal", "name": "훈장", "unlockStage": 6, "x": 0.55, "y": 0.65, "emoji": "🎖️", "description": "훈장이 인식 키로 작동!" },
+      { "id": "armor_gloves", "name": "갑옷 장갑", "unlockStage": 7, "x": 0.15, "y": 0.5, "emoji": "🧤", "description": "마법 장갑으로 힘이 세진다!" },
+      { "id": "cape", "name": "망토", "unlockStage": 8, "x": 0.6, "y": 0.35, "emoji": "🦸", "description": "투명 망토 효과!" },
+      { "id": "armor_boots", "name": "갑옷 부츠", "unlockStage": 9, "x": 0.45, "y": 0.45, "emoji": "🥾", "description": "소음 없는 마법 부츠!" },
+      { "id": "full_armor", "name": "완전 무장", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🤖", "description": "완전 무장! 경비처럼 보인다!" }
+    ]
+  },
+  {
+    "id": 15, "name": "사장 전용 스파", "theme": "spa",
+    "bgColor": "0x1a2530", "accentColor": "0xE0B0FF",
+    "storyIntro": "금욕조와 향초, 마법 거울이 있는 스파...\n비밀 엘리베이터를 찾아야 한다!",
+    "storyComplete": "비밀 엘리베이터를 발견했다!\n엘리베이터로 이동하자...",
+    "items": [
+      { "id": "bath_salts", "name": "입욕제", "unlockStage": 1, "x": 0.2, "y": 0.3, "emoji": "🧴", "description": "입욕제를 녹이면 바닥에 문양이!" },
+      { "id": "candle_set", "name": "향초 세트", "unlockStage": 2, "x": 0.7, "y": 0.45, "emoji": "🕯️", "description": "특정 순서로 불 붙이면..." },
+      { "id": "magic_mirror", "name": "마법 거울", "unlockStage": 3, "x": 0.35, "y": 0.55, "emoji": "🪞", "description": "거울이 숨겨진 문을 보여준다!" },
+      { "id": "gold_faucet", "name": "금 수전", "unlockStage": 4, "x": 0.8, "y": 0.35, "emoji": "🚿", "description": "수전을 돌리면 벽이 움직인다!" },
+      { "id": "towel_code", "name": "수건 암호", "unlockStage": 5, "x": 0.5, "y": 0.7, "emoji": "🔢", "description": "수건에 숫자가 수놓아져 있다!" },
+      { "id": "steam_valve", "name": "증기 밸브", "unlockStage": 6, "x": 0.15, "y": 0.5, "emoji": "♨️", "description": "증기로 벽의 비밀 글씨가 나타나!" },
+      { "id": "bath_plug", "name": "욕조 마개", "unlockStage": 7, "x": 0.6, "y": 0.4, "emoji": "🔘", "description": "마개를 뽑으면 물이 빠지며..." },
+      { "id": "hidden_panel", "name": "숨겨진 패널", "unlockStage": 8, "x": 0.4, "y": 0.35, "emoji": "🔲", "description": "욕조 밑에 패널 발견!" },
+      { "id": "elevator_btn", "name": "엘리베이터 버튼", "unlockStage": 9, "x": 0.75, "y": 0.6, "emoji": "🔳", "description": "비밀 버튼 발견!" },
+      { "id": "secret_elevator", "name": "비밀 엘리베이터", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🛗", "description": "비밀 엘리베이터 가동!" }
+    ]
+  },
+  {
+    "id": 16, "name": "사장실", "theme": "boss_office",
+    "bgColor": "0x1a0a0a", "accentColor": "0xCC0000",
+    "storyIntro": "거대한 책상, 골프채, 마법 왕좌...\n사장과의 최종 대결 열쇠를 찾자!",
+    "storyComplete": "사장의 약점을 알아냈다!\n전용 엘리베이터로 탈출하자...",
+    "items": [
+      { "id": "golf_club", "name": "골프채", "unlockStage": 1, "x": 0.2, "y": 0.35, "emoji": "🏌️", "description": "골프채를 지렛대로!" },
+      { "id": "desk_drawer", "name": "서랍 열쇠", "unlockStage": 2, "x": 0.7, "y": 0.3, "emoji": "🔑", "description": "비밀 서랍을 열었다!" },
+      { "id": "boss_diary", "name": "사장 일기", "unlockStage": 3, "x": 0.4, "y": 0.6, "emoji": "📕", "description": "사장의 약점이 적혀있다!" },
+      { "id": "throne_gem", "name": "왕좌 보석", "unlockStage": 4, "x": 0.8, "y": 0.5, "emoji": "💎", "description": "왕좌에서 보석을 빼낸다!" },
+      { "id": "cigar_box", "name": "시가 상자", "unlockStage": 5, "x": 0.3, "y": 0.45, "emoji": "📦", "description": "시가 상자 밑에 비밀 공간!" },
+      { "id": "portrait", "name": "초상화", "unlockStage": 6, "x": 0.55, "y": 0.65, "emoji": "🖼️", "description": "초상화 뒤에 금고가!" },
+      { "id": "boss_seal", "name": "사장 인감", "unlockStage": 7, "x": 0.15, "y": 0.55, "emoji": "🔏", "description": "사장 인감으로 서류 위조!" },
+      { "id": "secret_phone", "name": "비밀 전화기", "unlockStage": 8, "x": 0.6, "y": 0.4, "emoji": "📞", "description": "비밀 연락망 확보!" },
+      { "id": "weakness_doc", "name": "약점 문서", "unlockStage": 9, "x": 0.45, "y": 0.35, "emoji": "📋", "description": "사장의 모든 비리 문서!" },
+      { "id": "boss_defeat", "name": "사장 퇴진", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "👑", "description": "증거 확보! 사장이 쫓겨난다!" }
+    ]
+  },
+  {
+    "id": 17, "name": "사장 전용 엘리베이터", "theme": "elevator",
+    "bgColor": "0x151520", "accentColor": "0xFFD700",
+    "storyIntro": "금장 버튼과 비밀 층, 마법 실드...\n옥상행 버튼을 해금하자!",
+    "storyComplete": "옥상행 버튼 활성화!\n옥상으로 올라가자...",
+    "items": [
+      { "id": "gold_button", "name": "금장 버튼", "unlockStage": 1, "x": 0.2, "y": 0.3, "emoji": "🔘", "description": "금장 버튼을 눌러보자!" },
+      { "id": "shield_rune", "name": "실드 룬", "unlockStage": 2, "x": 0.7, "y": 0.45, "emoji": "🛡️", "description": "마법 실드를 약화시키는 룬!" },
+      { "id": "floor_panel", "name": "바닥 패널", "unlockStage": 3, "x": 0.35, "y": 0.55, "emoji": "🔲", "description": "바닥 패널 아래에 배선이!" },
+      { "id": "wire_set", "name": "배선 세트", "unlockStage": 4, "x": 0.8, "y": 0.35, "emoji": "🔌", "description": "옥상 버튼 배선을 연결!" },
+      { "id": "mirror_wall", "name": "거울 벽", "unlockStage": 5, "x": 0.5, "y": 0.7, "emoji": "🪞", "description": "거울 뒤에 컨트롤 패널!" },
+      { "id": "control_chip", "name": "제어 칩", "unlockStage": 6, "x": 0.15, "y": 0.5, "emoji": "🔧", "description": "제어 칩을 교체!" },
+      { "id": "power_crystal", "name": "동력 크리스탈", "unlockStage": 7, "x": 0.6, "y": 0.4, "emoji": "💎", "description": "엘리베이터 동력원!" },
+      { "id": "shield_break", "name": "실드 해제", "unlockStage": 8, "x": 0.4, "y": 0.35, "emoji": "💥", "description": "마법 실드가 깨졌다!" },
+      { "id": "rooftop_code", "name": "옥상 코드", "unlockStage": 9, "x": 0.75, "y": 0.6, "emoji": "🔢", "description": "옥상행 암호 해독!" },
+      { "id": "rooftop_btn", "name": "옥상 버튼", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "⬆️", "description": "옥상 버튼 활성화!" }
+    ]
+  },
+  {
+    "id": 18, "name": "옥상", "theme": "rooftop",
+    "bgColor": "0x0a1525", "accentColor": "0x87CEEB",
+    "storyIntro": "헬리패드와 물탱크, 마법 깃발이 휘날린다...\n밧줄을 만들어 하강 준비를 하자!",
+    "storyComplete": "밧줄 준비 완료! 외벽을 타고 내려가자!\n건물 외벽으로...",
+    "items": [
+      { "id": "antenna", "name": "안테나", "unlockStage": 1, "x": 0.2, "y": 0.35, "emoji": "📡", "description": "안테나로 구조 신호를!" },
+      { "id": "helipad_light", "name": "헬리패드 조명", "unlockStage": 2, "x": 0.7, "y": 0.3, "emoji": "💡", "description": "조명을 신호등으로 활용!" },
+      { "id": "water_hose", "name": "소방 호스", "unlockStage": 3, "x": 0.4, "y": 0.6, "emoji": "🔥", "description": "호스를 밧줄로 활용!" },
+      { "id": "magic_flag", "name": "마법 깃발", "unlockStage": 4, "x": 0.8, "y": 0.5, "emoji": "🚩", "description": "깃발의 마법으로 바람을 막는다!" },
+      { "id": "carabiner", "name": "카라비너", "unlockStage": 5, "x": 0.3, "y": 0.45, "emoji": "🔗", "description": "밧줄에 연결할 카라비너!" },
+      { "id": "tank_valve", "name": "물탱크 밸브", "unlockStage": 6, "x": 0.55, "y": 0.65, "emoji": "💧", "description": "물을 빼서 무게를 줄인다!" },
+      { "id": "rope_bundle", "name": "밧줄 묶음", "unlockStage": 7, "x": 0.15, "y": 0.5, "emoji": "🪢", "description": "여러 줄을 하나로 묶었다!" },
+      { "id": "harness", "name": "안전 벨트", "unlockStage": 8, "x": 0.6, "y": 0.4, "emoji": "🦺", "description": "하강용 안전 벨트!" },
+      { "id": "anchor_point", "name": "고정점", "unlockStage": 9, "x": 0.45, "y": 0.35, "emoji": "⚓", "description": "밧줄을 단단히 고정!" },
+      { "id": "rappel_ready", "name": "하강 준비", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🧗", "description": "하강 준비 완료!" }
+    ]
+  },
+  {
+    "id": 19, "name": "건물 외벽", "theme": "exterior",
+    "bgColor": "0x1a2035", "accentColor": "0xFF6B35",
+    "storyIntro": "비계와 창문, 마법 바람이 부는 외벽...\n지상까지 안전하게 내려가자!",
+    "storyComplete": "지상 도착! 마지막 관문만 남았다!\n로비/정문으로 향하자...",
+    "items": [
+      { "id": "suction_cup", "name": "흡착컵", "unlockStage": 1, "x": 0.2, "y": 0.3, "emoji": "🔴", "description": "벽에 붙을 흡착컵!" },
+      { "id": "scaffold_key", "name": "비계 열쇠", "unlockStage": 2, "x": 0.7, "y": 0.45, "emoji": "🔑", "description": "비계 사다리 잠금 해제!" },
+      { "id": "wind_shield", "name": "바람막이", "unlockStage": 3, "x": 0.35, "y": 0.55, "emoji": "🌬️", "description": "마법 바람을 막아준다!" },
+      { "id": "ledge_grip", "name": "난간 손잡이", "unlockStage": 4, "x": 0.8, "y": 0.35, "emoji": "✋", "description": "안전한 이동 경로 확보!" },
+      { "id": "window_crack", "name": "창문 균열", "unlockStage": 5, "x": 0.5, "y": 0.7, "emoji": "🪟", "description": "창문으로 다시 들어갈 수 있다!" },
+      { "id": "gutter_pipe", "name": "배수관", "unlockStage": 6, "x": 0.15, "y": 0.5, "emoji": "🔧", "description": "배수관을 타고 내려간다!" },
+      { "id": "safety_net", "name": "안전망", "unlockStage": 7, "x": 0.6, "y": 0.4, "emoji": "🕸️", "description": "아래 안전망을 발견!" },
+      { "id": "lower_scaffold", "name": "하부 비계", "unlockStage": 8, "x": 0.4, "y": 0.35, "emoji": "🏗️", "description": "하부 비계로 이동!" },
+      { "id": "ground_rope", "name": "지상 밧줄", "unlockStage": 9, "x": 0.75, "y": 0.6, "emoji": "🪢", "description": "마지막 밧줄 연결!" },
+      { "id": "ground_landing", "name": "지상 착지", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🦶", "description": "안전하게 지상 도착!" }
+    ]
+  },
+  {
+    "id": 20, "name": "로비/정문", "theme": "lobby",
+    "bgColor": "0x1a1a2e", "accentColor": "0x32CD32",
+    "storyIntro": "회전문과 경비 초소, 마법 차단기...\n이것이 마지막 관문이다! 최종 탈출!",
+    "storyComplete": "탈출 성공!! 곰사원은 드디어 자유를 되찾았다!",
+    "items": [
+      { "id": "lobby_map", "name": "로비 구조도", "unlockStage": 1, "x": 0.2, "y": 0.35, "emoji": "🗺️", "description": "경비 순찰 경로 파악!" },
+      { "id": "guard_schedule", "name": "교대 시간표", "unlockStage": 2, "x": 0.7, "y": 0.3, "emoji": "⏰", "description": "교대 시간의 빈틈!" },
+      { "id": "revolving_oil", "name": "회전문 윤활유", "unlockStage": 3, "x": 0.4, "y": 0.6, "emoji": "🛢️", "description": "회전문 속도를 조절!" },
+      { "id": "barrier_code", "name": "차단기 코드", "unlockStage": 4, "x": 0.8, "y": 0.5, "emoji": "🔢", "description": "차단기 해제 코드!" },
+      { "id": "guard_uniform", "name": "경비복", "unlockStage": 5, "x": 0.3, "y": 0.45, "emoji": "👔", "description": "경비원으로 완벽 위장!" },
+      { "id": "diversion", "name": "양동 작전", "unlockStage": 6, "x": 0.55, "y": 0.65, "emoji": "💣", "description": "반대편에서 소동을 일으킨다!" },
+      { "id": "barrier_key", "name": "차단기 열쇠", "unlockStage": 7, "x": 0.15, "y": 0.55, "emoji": "🔑", "description": "차단기 수동 해제 열쇠!" },
+      { "id": "magic_dispel", "name": "마법 해제", "unlockStage": 8, "x": 0.6, "y": 0.4, "emoji": "✨", "description": "마법 차단기를 해제!" },
+      { "id": "exit_clear", "name": "출구 확보", "unlockStage": 9, "x": 0.45, "y": 0.35, "emoji": "🚪", "description": "정문까지 길이 열렸다!" },
+      { "id": "freedom", "name": "자유!", "unlockStage": 10, "x": 0.5, "y": 0.5, "emoji": "🌅", "description": "최종 탈출 성공!!" }
+    ]
+  }
+]
