@@ -6,6 +6,7 @@ export interface ProgressData {
   coins: number;
   lives: number;
   lastLifeTime: number;
+  lastSeenRoom: number;
 }
 
 export class PlayerProgress {
@@ -20,7 +21,7 @@ export class PlayerProgress {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) return JSON.parse(raw);
     } catch { /* ignore */ }
-    return { currentLevel: 1, stars: {}, coins: 100, lives: 5, lastLifeTime: Date.now() };
+    return { currentLevel: 1, stars: {}, coins: 100, lives: 5, lastLifeTime: Date.now(), lastSeenRoom: 0 };
   }
 
   save(): void {
@@ -30,6 +31,12 @@ export class PlayerProgress {
   get currentLevel(): number { return this.data.currentLevel; }
   get coins(): number { return this.data.coins; }
   get lives(): number { return this.data.lives; }
+  get lastSeenRoom(): number { return this.data.lastSeenRoom ?? 0; }
+
+  setLastSeenRoom(roomId: number): void {
+    this.data.lastSeenRoom = roomId;
+    this.save();
+  }
 
   completeLevel(id: number, stars: number): void {
     this.data.stars[id] = Math.max(this.data.stars[id] ?? 0, stars);
