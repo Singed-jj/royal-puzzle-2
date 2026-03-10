@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { Board } from './Board';
 import { BoardItemData, GemType, BoosterType } from './types';
-import { TILE_SIZE, GRID_OFFSET_X, GRID_OFFSET_Y } from '../config';
+import { TILE_SIZE, GRID_OFFSET_X, GRID_OFFSET_Y, GEM_SCALE, BOOSTER_SCALE } from '../config';
 
 const GEM_TEXTURE: Record<number, string> = {
   [GemType.Red]: 'gem_0', [GemType.Blue]: 'gem_1', [GemType.Green]: 'gem_2',
@@ -57,8 +57,10 @@ export class BoardRenderer {
     if (!item) return;
     const x = col * TILE_SIZE + TILE_SIZE / 2;
     const y = row * TILE_SIZE + TILE_SIZE / 2;
-    const texture = item.booster !== BoosterType.None ? BOOSTER_TEXTURE[item.booster] : GEM_TEXTURE[item.gemType];
+    const isBooster = item.booster !== BoosterType.None;
+    const texture = isBooster ? BOOSTER_TEXTURE[item.booster] : GEM_TEXTURE[item.gemType];
     const sprite = this.scene.add.sprite(x, y, texture);
+    sprite.setScale(isBooster ? BOOSTER_SCALE : GEM_SCALE);
     sprite.setInteractive();
     sprite.setData('row', row);
     sprite.setData('col', col);
@@ -103,7 +105,7 @@ export class BoardRenderer {
       if (!sprite) return Promise.resolve();
       return new Promise<void>((resolve) => {
         this.scene.tweens.add({
-          targets: sprite, scale: isSpecial ? 1.5 : 1.3, alpha: 0, duration: 150, ease: 'Power2',
+          targets: sprite, scale: isSpecial ? GEM_SCALE * 1.8 : GEM_SCALE * 1.3, alpha: 0, duration: 150, ease: 'Power2',
           onComplete: () => { sprite.destroy(); this.sprites[tile.row][tile.col] = null; resolve(); },
         });
       });
@@ -123,8 +125,8 @@ export class BoardRenderer {
     this.sprites[row][col] = sprite;
     return new Promise((resolve) => {
       this.scene.tweens.add({
-        targets: sprite, scale: { from: 0, to: 1.4 }, duration: 200, ease: 'Back.easeOut', yoyo: true, repeat: 1,
-        onComplete: () => { sprite.setScale(1); resolve(); },
+        targets: sprite, scale: { from: 0, to: BOOSTER_SCALE * 1.4 }, duration: 200, ease: 'Back.easeOut', yoyo: true, repeat: 1,
+        onComplete: () => { sprite.setScale(BOOSTER_SCALE); resolve(); },
       });
     });
   }
@@ -145,7 +147,9 @@ export class BoardRenderer {
       const x = item.col * TILE_SIZE + TILE_SIZE / 2;
       const endY = item.row * TILE_SIZE + TILE_SIZE / 2;
       const texture = item.booster !== BoosterType.None ? BOOSTER_TEXTURE[item.booster] : GEM_TEXTURE[item.gemType];
+      const isBooster = item.booster !== BoosterType.None;
       const sprite = this.scene.add.sprite(x, -TILE_SIZE, texture);
+      sprite.setScale(isBooster ? BOOSTER_SCALE : GEM_SCALE);
       sprite.setInteractive();
       sprite.setData('row', item.row);
       sprite.setData('col', item.col);
