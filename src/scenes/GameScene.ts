@@ -8,7 +8,7 @@ import { Level } from '../game/Level';
 import { HUD } from '../ui/HUD';
 import { ParticleManager } from '../effects/ParticleManager';
 import { SoundManager } from '../audio/SoundManager';
-import { GemType, BoosterType, MatchResult, MergeType, LevelData } from '../game/types';
+import { GemType, BoosterType, BoardItemData, MatchResult, MergeType, LevelData } from '../game/types';
 import { GRID_COLS, GRID_ROWS, GAME_WIDTH } from '../config';
 import levelsData from '../data/levels.json';
 
@@ -56,19 +56,19 @@ export class GameScene extends Phaser.Scene {
     const item1 = this.board.getBoardItem(r1, c1);
     const item2 = this.board.getBoardItem(r2, c2);
 
-    // Booster merge check
-    if (item1 && item2 && item1.booster !== BoosterType.None && item2.booster !== BoosterType.None) {
+    const b1 = item1?.booster !== BoosterType.None;
+    const b2 = item2?.booster !== BoosterType.None;
+
+    // Booster + Booster merge
+    if (item1 && item2 && b1 && b2) {
       const mergeType = this.boosterMerger.getMergeType(item1.booster, item2.booster);
       if (mergeType !== MergeType.None) {
         await this.boardRenderer.animateSwap(r1, c1, r2, c2);
         this.board.swap(r1, c1, r2, c2);
-        // Execute merge (simplified: remove both and area)
         this.sfx.playBoosterActivate();
         this.particles.emitBoosterActivate(r2, c2);
         const removed = this.boosterExec.executeTNT(r2, c2, mergeType === MergeType.MegaExplosion ? 4 : mergeType === MergeType.AllBoardExplosion ? 10 : 3);
-        await this.boardRenderer.animateRemove(removed, r2, c2, true);
-        const cascade = this.board.removeAndCascade(removed, ALL_GEMS);
-        await this.boardRenderer.animateCascade(cascade.moved, cascade.spawned);
+        await this.activateAndCascade(removed, r2, c2);
         this.level.useMove();
         this.hud.update(this.level);
         this.checkEndCondition();
@@ -76,6 +76,25 @@ export class GameScene extends Phaser.Scene {
         this.inputHandler.setEnabled(true);
         return;
       }
+    }
+
+    // Booster + Gem swap → activate booster
+    if (item1 && item2 && (b1 || b2) && !(b1 && b2)) {
+      await this.boardRenderer.animateSwap(r1, c1, r2, c2);
+      this.board.swap(r1, c1, r2, c2);
+      const boosterRow = b1 ? r1 : r2;
+      const boosterCol = b1 ? c1 : c2;
+      const gemItem = b1 ? item2 : item1;
+      this.sfx.playBoosterActivate();
+      this.particles.emitBoosterActivate(boosterRow, boosterCol);
+      const removed = this.boosterExec.execute(boosterRow, boosterCol, gemItem.gemType);
+      await this.activateAndCascade(removed, boosterRow, boosterCol);
+      this.level.useMove();
+      this.hud.update(this.level);
+      this.checkEndCondition();
+      this.processing = false;
+      this.inputHandler.setEnabled(true);
+      return;
     }
 
     this.sfx.playSwap();
@@ -160,6 +179,53 @@ export class GameScene extends Phaser.Scene {
 
     const newMatches = this.board.findAllMatches();
     if (newMatches.length > 0) {
+      await this.processMatches(newMatches);
+    }
+  }
+
+  private async activateAndCascade(removed: BoardItemData[], centerRow: number, centerCol: number): Promise<void> {
+    // Track goal progress for removed gems
+    for (const tile of removed) {
+      if (tile.booster === BoosterType.None) {
+        this.level.addGoalProgress(tile.gemType, 1);
+      }
+    }
+
+    // Chain-activate boosters caught in the blast (exclude the source booster)
+    const chainBoosters = removed.filter(
+      (t) => t.booster !== BoosterType.None && !(t.row === centerRow && t.col === centerCol)
+    );
+
+    await this.boardRenderer.animateRemove(removed, centerRow, centerCol, true);
+
+    // Activate chained boosters
+    for (const cb of chainBoosters) {
+      this.sfx.playBoosterActivate();
+      this.particles.emitBoosterActivate(cb.row, cb.col);
+      const chainRemoved = this.boosterExec.execute(cb.row, cb.col);
+      for (const tile of chainRemoved) {
+        if (tile.booster === BoosterType.None) {
+          this.level.addGoalProgress(tile.gemType, 1);
+        }
+      }
+      await this.boardRenderer.animateRemove(chainRemoved, cb.row, cb.col, true);
+      // Add chain-removed to the main removed set for cascade
+      for (const cr of chainRemoved) {
+        if (!removed.includes(cr)) removed.push(cr);
+      }
+    }
+
+    const cascade = this.board.removeAndCascade(removed, ALL_GEMS);
+    for (const obs of cascade.obstaclesHit) {
+      if (obs.destroyed) this.level.addGoalProgress(100, 1);
+    }
+    this.sfx.playCascade();
+    await this.boardRenderer.animateCascade(cascade.moved, cascade.spawned);
+
+    // Check for new matches from cascade
+    const newMatches = this.board.findAllMatches();
+    if (newMatches.length > 0) {
+      this.comboLevel = 0;
       await this.processMatches(newMatches);
     }
   }
