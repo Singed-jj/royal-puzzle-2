@@ -15,6 +15,14 @@ export class MapScene extends Phaser.Scene {
     this.roomManager = new RoomManager(this.progress);
 
     const room = this.roomManager.getCurrentRoom();
+
+    // 새 공간 진입 시 스토리 인트로 표시
+    if (this.progress.lastSeenRoom < room.id) {
+      this.progress.setLastSeenRoom(room.id);
+      this.scene.start('StoryScene', { room, isIntro: true });
+      return;
+    }
+
     const stageInRoom = this.roomManager.getCurrentStageInRoom();
     const unlocked = this.roomManager.getUnlockedItems(room);
     const nextItem = this.roomManager.getNextUnlockItem(room);
