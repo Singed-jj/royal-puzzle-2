@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { PlayerProgress } from '../game/PlayerProgress';
+import { RoomManager } from '../game/RoomManager';
 import { ParticleManager } from '../effects/ParticleManager';
 import { SoundManager } from '../audio/SoundManager';
 import { GAME_WIDTH, GAME_HEIGHT } from '../config';
@@ -33,6 +34,25 @@ export class ResultScene extends Phaser.Scene {
       this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 2, `+${data.stars * 10} 💰`, {
         fontSize: '20px', color: '#E8D5B7', fontFamily: 'Arial',
       }).setOrigin(0.5);
+
+      // 아이템 해금 연출
+      const roomMgr = new RoomManager(progress);
+      const room = roomMgr.getCurrentRoom();
+      const stageInRoom = ((data.levelId - 1) % 10) + 1;
+      const justUnlocked = room.items.find(i => i.unlockStage === stageInRoom);
+      if (justUnlocked) {
+        const unlockY = GAME_HEIGHT / 2 + 30;
+        const emojiText = this.add.text(GAME_WIDTH / 2, unlockY, justUnlocked.emoji, {
+          fontSize: '40px',
+        }).setOrigin(0.5).setScale(0).setAlpha(0);
+
+        const desc = this.add.text(GAME_WIDTH / 2, unlockY + 35, justUnlocked.description, {
+          fontSize: '13px', color: '#E8D5B7', fontFamily: 'Arial',
+        }).setOrigin(0.5).setAlpha(0);
+
+        this.tweens.add({ targets: emojiText, scale: 1, alpha: 1, duration: 400, delay: 500, ease: 'Back.easeOut' });
+        this.tweens.add({ targets: desc, alpha: 1, duration: 300, delay: 800 });
+      }
     } else {
       sfx.playLevelFail();
       this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 2 - 150, '🐉', { fontSize: '56px' }).setOrigin(0.5);
