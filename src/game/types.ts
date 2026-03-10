@@ -106,6 +106,27 @@ export enum MergeType {
   MissileTNT = 10,
 }
 
+export interface RoomData {
+  id: number;
+  name: string;
+  theme: string;
+  bgColor: string;       // "0x1a1a2e" 형태 문자열
+  accentColor: string;   // "0xFFD700" 형태 문자열
+  storyIntro: string;
+  storyComplete: string;
+  items: RoomItemData[];
+}
+
+export interface RoomItemData {
+  id: string;
+  name: string;
+  unlockStage: number;  // 공간 내 몇 번째 스테이지에서 해금 (1-10)
+  x: number;            // 아이템 배치 x 비율 (0-1)
+  y: number;            // 아이템 배치 y 비율 (0-1)
+  emoji: string;
+  description: string;
+}
+
 export interface GoalData {
   itemId: number;
   count: number;
