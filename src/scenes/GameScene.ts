@@ -6,6 +6,8 @@ import { BoosterExecutor } from '../game/BoosterExecutor';
 import { BoosterMerger } from '../game/BoosterMerger';
 import { Level } from '../game/Level';
 import { HUD } from '../ui/HUD';
+import { ParticleManager } from '../effects/ParticleManager';
+import { SoundManager } from '../audio/SoundManager';
 import { GemType, BoosterType, MatchResult, MergeType, LevelData } from '../game/types';
 import { GRID_COLS, GRID_ROWS, GAME_WIDTH } from '../config';
 import levelsData from '../data/levels.json';
@@ -20,7 +22,10 @@ export class GameScene extends Phaser.Scene {
   private boosterMerger!: BoosterMerger;
   private level!: Level;
   private hud!: HUD;
+  private particles!: ParticleManager;
+  private sfx!: SoundManager;
   private processing = false;
+  private comboLevel = 0;
 
   constructor() { super({ key: 'GameScene' }); }
 
@@ -39,6 +44,8 @@ export class GameScene extends Phaser.Scene {
     this.inputHandler = new InputHandler(this, this.handleSwap.bind(this));
     this.hud = new HUD(this);
     this.hud.create(this.level);
+    this.particles = new ParticleManager(this);
+    this.sfx = new SoundManager(this);
   }
 
   private async handleSwap(r1: number, c1: number, r2: number, c2: number): Promise<void> {
@@ -56,6 +63,8 @@ export class GameScene extends Phaser.Scene {
         await this.boardRenderer.animateSwap(r1, c1, r2, c2);
         this.board.swap(r1, c1, r2, c2);
         // Execute merge (simplified: remove both and area)
+        this.sfx.playBoosterActivate();
+        this.particles.emitBoosterActivate(r2, c2);
         const removed = this.boosterExec.executeTNT(r2, c2, mergeType === MergeType.MegaExplosion ? 4 : mergeType === MergeType.AllBoardExplosion ? 10 : 3);
         await this.boardRenderer.animateRemove(removed, r2, c2, true);
         const cascade = this.board.removeAndCascade(removed, ALL_GEMS);
@@ -69,6 +78,7 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
+    this.sfx.playSwap();
     await this.boardRenderer.animateSwap(r1, c1, r2, c2);
     const matches = this.board.trySwap(r1, c1, r2, c2);
 
@@ -76,6 +86,7 @@ export class GameScene extends Phaser.Scene {
       await this.boardRenderer.animateSwap(r1, c1, r2, c2);
     } else {
       this.level.useMove();
+      this.comboLevel = 0;
       await this.processMatches(matches);
       this.hud.update(this.level);
       this.checkEndCondition();
@@ -86,6 +97,9 @@ export class GameScene extends Phaser.Scene {
   }
 
   private async processMatches(matches: MatchResult[]): Promise<void> {
+    this.sfx.playMatch(this.comboLevel);
+    this.comboLevel++;
+
     for (const match of matches) {
       const isSpecial = match.boosterToCreate !== BoosterType.None;
 
@@ -96,6 +110,15 @@ export class GameScene extends Phaser.Scene {
       }
       for (const [gemType, count] of gemCounts) {
         this.level.addGoalProgress(gemType, count);
+      }
+
+      // Emit match particles for each tile
+      for (const tile of match.tiles) {
+        this.particles.emitMatchParticles(tile.row, tile.col, tile.gemType);
+      }
+
+      if (isSpecial) {
+        this.sfx.playBoosterActivate();
       }
 
       await this.boardRenderer.animateRemove(match.tiles, match.centerRow, match.centerCol, isSpecial);
@@ -124,6 +147,7 @@ export class GameScene extends Phaser.Scene {
       if (obs.destroyed) this.level.addGoalProgress(100, 1);
     }
 
+    this.sfx.playCascade();
     await this.boardRenderer.animateCascade(cascade.moved, cascade.spawned);
 
     const newMatches = this.board.findAllMatches();
@@ -134,6 +158,8 @@ export class GameScene extends Phaser.Scene {
 
   private checkEndCondition(): void {
     if (this.level.isComplete()) {
+      this.particles.emitLevelClearConfetti();
+      this.sfx.playLevelClear();
       this.time.delayedCall(500, () => {
         this.scene.start('ResultScene', {
           success: true,
@@ -142,6 +168,7 @@ export class GameScene extends Phaser.Scene {
         });
       });
     } else if (this.level.isFailed()) {
+      this.sfx.playLevelFail();
       this.time.delayedCall(500, () => {
         this.scene.start('ResultScene', {
           success: false,

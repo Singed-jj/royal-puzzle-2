@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import { PlayerProgress } from '../game/PlayerProgress';
+import { ParticleManager } from '../effects/ParticleManager';
+import { SoundManager } from '../audio/SoundManager';
 import { GAME_WIDTH, GAME_HEIGHT } from '../config';
 
 export class ResultScene extends Phaser.Scene {
@@ -11,7 +13,12 @@ export class ResultScene extends Phaser.Scene {
     const panel = this.add.rectangle(GAME_WIDTH / 2, GAME_HEIGHT / 2 - 40, 320, 300, 0x2D1B4E);
     panel.setStrokeStyle(3, 0xF1C40F);
 
+    const sfx = new SoundManager(this);
+
     if (data.success) {
+      const particles = new ParticleManager(this);
+      particles.emitLevelClearConfetti();
+      sfx.playLevelClear();
       const progress = new PlayerProgress();
       progress.completeLevel(data.levelId, data.stars);
       progress.addCoins(data.stars * 10);
@@ -27,6 +34,7 @@ export class ResultScene extends Phaser.Scene {
         fontSize: '20px', color: '#E8D5B7', fontFamily: 'Arial',
       }).setOrigin(0.5);
     } else {
+      sfx.playLevelFail();
       this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 2 - 150, '🐉', { fontSize: '56px' }).setOrigin(0.5);
       this.add.text(GAME_WIDTH / 2, GAME_HEIGHT / 2 - 80, 'Level Failed', {
         fontSize: '28px', color: '#E74C3C', fontFamily: 'Arial', fontStyle: 'bold',
