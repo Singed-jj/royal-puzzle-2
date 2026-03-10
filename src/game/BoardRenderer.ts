@@ -66,6 +66,17 @@ export class BoardRenderer {
     sprite.setData('col', col);
     this.container.add(sprite);
     this.sprites[row][col] = sprite;
+    if (isBooster) {
+      sprite.setDepth(1);
+      this.scene.tweens.add({
+        targets: sprite,
+        scale: { from: BOOSTER_SCALE, to: BOOSTER_SCALE * 1.08 },
+        duration: 800,
+        yoyo: true,
+        repeat: -1,
+        ease: 'Sine.easeInOut',
+      });
+    }
   }
 
   getSprite(row: number, col: number): Phaser.GameObjects.Sprite | null { return this.sprites[row][col]; }
