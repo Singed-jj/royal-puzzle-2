@@ -78,12 +78,13 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // Booster + Gem swap → activate booster
+    // Booster + Gem swap → activate booster at its original position (before swap)
     if (item1 && item2 && (b1 || b2) && !(b1 && b2)) {
       await this.boardRenderer.animateSwap(r1, c1, r2, c2);
       this.board.swap(r1, c1, r2, c2);
-      const boosterRow = b1 ? r1 : r2;
-      const boosterCol = b1 ? c1 : c2;
+      // After swap, booster moved to the OTHER position
+      const boosterRow = b1 ? r2 : r1;
+      const boosterCol = b1 ? c2 : c1;
       const gemItem = b1 ? item2 : item1;
       this.sfx.playBoosterActivate();
       this.particles.emitBoosterActivate(boosterRow, boosterCol);
