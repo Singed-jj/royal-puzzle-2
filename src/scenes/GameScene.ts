@@ -139,7 +139,15 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    const allTiles = matches.flatMap((m) => m.tiles);
+    // Exclude tiles at positions where boosters were just created
+    const boosterPositions = new Set(
+      matches
+        .filter((m) => m.boosterToCreate !== BoosterType.None)
+        .map((m) => `${m.centerRow},${m.centerCol}`)
+    );
+    const allTiles = matches
+      .flatMap((m) => m.tiles)
+      .filter((t) => !boosterPositions.has(`${t.row},${t.col}`));
     const cascade = this.board.removeAndCascade(allTiles, ALL_GEMS);
 
     // Track obstacle hit goals
