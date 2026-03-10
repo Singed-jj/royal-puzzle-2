@@ -53,8 +53,13 @@ export class ResultScene extends Phaser.Scene {
     btn.on('pointerover', () => btn.setFillStyle(0xE8B888));
     btn.on('pointerout', () => btn.setFillStyle(0xD4A574));
     btn.on('pointerdown', () => {
-      const nextLevel = data.success ? data.levelId + 1 : data.levelId;
-      this.scene.start('GameScene', { levelId: nextLevel });
+      if (data.success && data.levelId % 10 === 0) {
+        // 공간 클리어 → 전환 씬
+        this.scene.start('RoomTransitionScene', { completedRoomId: Math.floor(data.levelId / 10) });
+      } else {
+        const nextLevel = data.success ? data.levelId + 1 : data.levelId;
+        this.scene.start('GameScene', { levelId: nextLevel });
+      }
     });
 
     // Map button
